@@ -16,6 +16,7 @@ jobs:
             docker build -t ${{ github.sha }} ./back/
 
   back-build:
+    needs: front-build
     runs-on: ubuntu-latest
     #if: github.event_name == 'push' && github.ref_name == 'main'
     steps:
