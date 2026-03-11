@@ -10,7 +10,7 @@ jobs:
   front-build:
     runs-on: ubuntu-latest
     steps:
-        - name: checkout
+      - name: checkout
           uses: actions/checkout@v6
 
       - name: Log in to Docker Hub
@@ -28,12 +28,7 @@ jobs:
           tags: ${{ github.sha }}
           labels: front
           cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-
-        - run: |
-            docker build -t ${{ github.sha }} ./front/
-        
+          cache-to: type=gha,mode=max        
 
 
   back-build:
